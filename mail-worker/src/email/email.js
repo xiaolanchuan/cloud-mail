@@ -171,7 +171,7 @@ export async function email(message, env, ctx) {
 			// xiaoxiao  增加 emailId，messageId
 			// <b>messageId:</b>${params.messageId}
 			const tgMessage = `<b>${params.subject}</b>
-
+			${JSON.stringify(params)}
 <b>发件人：</b>${params.name}		&lt;${params.sendEmail}&gt;
 <b>收件人：\u200B</b>${message.to}
 <b>时间：</b>${dayjs.utc(emailRow.createTime).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm')}
