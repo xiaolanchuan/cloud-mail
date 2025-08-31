@@ -13,7 +13,6 @@ import timezone from 'dayjs/plugin/timezone';
 import roleService from '../service/role-service';
 import verifyUtils from '../utils/verify-utils';
 
-
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -172,7 +171,8 @@ export async function email(message, env, ctx) {
 			// xiaoxiao  增加 emailId，messageId
 			const tgMessage = `<b>${params.subject}</b>
 
-			<b>messageId::</b>${params.messageId||0}
+<b>accountId::</b>${params.accountId || '0'}
+<b>messageId::</b>${params.messageId || '0'}
 <b>发件人：</b>${params.name}		&lt;${params.sendEmail}&gt;
 <b>收件人：\u200B</b>${message.to}
 <b>时间：</b>${dayjs.utc(emailRow.createTime).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm')}
