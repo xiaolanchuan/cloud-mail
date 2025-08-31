@@ -123,7 +123,7 @@ export async function email(message, env, ctx) {
 			userId: account ? account.userId : 0,
 			accountId: account ? account.accountId : 0,
 			isDel: isDel.DELETE,
-			emailId: email.emailId ? email.emailId : 0, // xiaoxiao
+			// emailId: email.emailId ? email.emailId : 0, // xiaoxiao
 			status: emailConst.status.SAVING
 		};
 
@@ -171,7 +171,6 @@ export async function email(message, env, ctx) {
 			// xiaoxiao  增加 emailId，messageId
 			const tgMessage = `<b>${params.subject}</b>
 
-			<b>emailId:</b>${params.emailId||0} 
 			<b>messageId::</b>${params.messageId||0}
 <b>发件人：</b>${params.name}		&lt;${params.sendEmail}&gt;
 <b>收件人：\u200B</b>${message.to}
