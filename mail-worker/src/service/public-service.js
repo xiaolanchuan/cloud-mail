@@ -19,7 +19,8 @@ const publicService = {
 
 	async emailList(c, params) {
 
-		let { toEmail, content, subject, sendName, sendEmail, timeSort, num, size, type , isDel, miniId } = params
+		// xiaoxiao 增加 minId
+		let { toEmail, content, subject, sendName, sendEmail, timeSort, num, size, type , isDel, minId } = params
 
 		const query = orm(c).select({
 				emailId: email.emailId,
@@ -61,7 +62,7 @@ const publicService = {
 		if (sendName) {
 			conditions.push(sql`${email.name} COLLATE NOCASE LIKE ${sendName}`)
 		}
-
+		// xiaoxiao
 		if(minId) {
 			conditions.push(sql`${email.emailId} > ${minId}`)
 		}
